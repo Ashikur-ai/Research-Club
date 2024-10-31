@@ -35,10 +35,10 @@
         <div align="center" style="padding-top: 100px;">
             <table>
                 <tr style="background-color: black;">
-                    <th style="padding: 10px">Customer name</th>
+                    <th style="padding: 10px">Student name</th>
                     <th style="padding: 10px">Email</th>
                     <th style="padding: 10px">Phone</th>
-                    <th style="padding: 10px">Doctor Name</th>
+                    <th style="padding: 10px">Teacher Name</th>
                     <th style="padding: 10px">Date</th>
                     <th style="padding: 10px">Message</th>
                     <th style="padding: 10px">Status</th>

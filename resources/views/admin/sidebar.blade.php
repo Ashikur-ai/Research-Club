@@ -1,18 +1,14 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-        <a class="sidebar-brand brand-logo" href="index.html"><img src="./admin/assets/images/logo.svg" alt="logo" /></a>
-        <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="./admin/assets/images/logo-mini.svg" alt="logo" /></a>
+
     </div>
     <ul class="nav">
         <li class="nav-item profile">
             <div class="profile-desc">
                 <div class="profile-pic">
-                    <div class="count-indicator">
-                        <img class="img-xs rounded-circle " src="./admin/assets/images/faces/face15.jpg" alt="">
-                        <span class="count bg-success"></span>
-                    </div>
+
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                        <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
                         <span>Gold Member</span>
                     </div>
                 </div>
@@ -58,30 +54,74 @@
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('add_doctor_view') }}">
+            <a class="nav-link" href="{{ url('add_teacher_view') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-                <span class="menu-title">Add Doctor</span>
+                <span class="menu-title">Add Teacher</span>
             </a>
         </li>
 
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('show_appointment') }}">
+            <a class="nav-link" href="{{ route('student.add') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-                <span class="menu-title">Appointments</span>
+                <span class="menu-title">Add Students</span>
             </a>
         </li>
 
 
+
+
         <li class="nav-item menu-items">
-            <a class="nav-link" href="{{ url('show_doctor') }}">
+            <a class="nav-link" href="{{ url('show_teacher') }}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
-                <span class="menu-title">All Doctors</span>
+                <span class="menu-title">All Teachers</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('student.show')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">All Students</span>
+            </a>
+        </li>
+
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('web.add') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">Add Web Development <br> Projects</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('thesis.add') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">Add Thesis Project</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('android.add') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">Add Mobile Application</span>
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="{{ route('send.notification') }}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+                <span class="menu-title">Send Notifications</span>
             </a>
         </li>
 

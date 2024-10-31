@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Teacher;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Models\Doctor;
 use App\Models\Appointment;
@@ -12,26 +14,26 @@ class AdminController extends Controller
     //
     public function addview()
     {
-        return view('admin.add_doctor');
+        return view('admin.add_teacher');
     }
 
     public function upload(Request $request)
     {
-        $doctor = new doctor;
+        $teacher = new Teacher;
         $image = $request->file;
 
         $imageName = time().'.'.$image->getClientOriginalExtension();
-        $request->file->move('doctorImage', $imageName);
-        $doctor->image = $imageName;
+        $request->file->move('teacherImage', $imageName);
+        $teacher->image = $imageName;
 
-        $doctor->name = $request->name;
-        $doctor->phone = $request->number;
-        $doctor->room = $request->room;
-        $doctor->speciality = $request->speciality;
+        $teacher->name = $request->name;
+        $teacher->phone = $request->number;
+        $teacher->room = $request->room;
+        $teacher->speciality = $request->speciality;
 
-        $doctor->save();
+        $teacher->save();
 
-        return redirect()->back()->with('message', 'Doctor added successfully');
+        return redirect()->back()->with('message', 'Teacher added successfully');
 
     }
 
@@ -57,45 +59,81 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function show_doctor()
+    public function show_teacher()
     {
-        $data = Doctor::all();
-        return view('admin.show_doctor', compact('data'));
+        $data = Teacher::all();
+        return view('admin.show_teacher', compact('data'));
     }
 
-    public function delete_doctor($id)
+    public function delete_teacher($id)
     {
-        $data = Doctor::find($id);
+        $data = Teacher::find($id);
         $data->delete();
         return redirect()->back();
     }
 
-    public function update_doctor($id)
-    {
-        $data = Doctor::find($id);
-        return view('admin.update_doctor', compact('data'));
-    }
 
-    public function edit_doctor(Request $request, $id){
-        $doctor = Doctor::find($id);
+        public function delete_student($id)
+        {
+            $data = Student::find($id);
+            $data->delete();
+            return redirect()->back();
+        }
 
-        $doctor->name = $request->name;
-        $doctor->phone = $request->phone;
-        $doctor->speciality = $request->speciality;
-        $doctor->room = $request->room;
+
+
+
+    public function edit_teacher(Request $request, $id){
+        $teacher = Teacher::find($id);
+
+        $teacher->name = $request->name;
+        $teacher->phone = $request->phone;
+        $teacher->speciality = $request->speciality;
+        $teacher->room = $request->room;
 
         $image = $request->file;
         if($image)
         {
             $imageName = time().'.'.$image->getClientOriginalExtension();
             $request->file->move('doctorImage', $imageName);
-            $doctor->image = $imageName;
+            $teacher->image = $imageName;
         }
 
 
-        $doctor->save();
+        $teacher->save();
         return redirect()->back()->with('message', 'Updated successfully');
 
+    }
+
+    public function addStudent()
+    {
+        return view('admin.add_student');
+    }
+
+    public function uploadStudent(Request $request)
+    {
+        $student = new Student;
+        $image = $request->file;
+
+        $imageName = time().'.'.$image->getClientOriginalExtension();
+        $request->file->move('studentImage', $imageName);
+        $student->image = $imageName;
+
+        $student->name = $request->name;
+        $student->batch = $request->batch;
+        $student->dept = $request->dept;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+
+        $student->save();
+
+        return redirect()->back()->with('message', 'Student added successfully');
+    }
+
+    public function ShowStudent()
+    {
+        $data = Student::all();
+        return view('admin.allStudent', compact('data'));
     }
 
 }

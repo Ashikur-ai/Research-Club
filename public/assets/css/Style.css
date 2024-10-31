@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+/* common css */
+.fs-10{
+    font-size: 10px;
+}
+
+.brand-image{
+    height: 50px;
+    width: auto;
+}
+.nav-item{
+    padding: 0.5rem;
+}
+
+.btn-info{
+    background: #0099FF;
+}
+.btn-info:hover{
+    color:white;
+    background: #0099FF;
+}
+.btn-outline-info{
+    border-color: #0099FF;
+}
+.btn-outline-info:hover{
+    background: #0099FF;
+    border-color: #0099FF;
+}
+
+
+
+
+
+/* section one style starts */
+
+.padd{
+    padding-top: 100px;
+}
+
+.footer{
+    text-align: end;
+}
+/* carousel custom css */
+
+.owl-item-custom-size {width: 128.906px; margin-right: 10px;}
